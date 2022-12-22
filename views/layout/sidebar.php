@@ -7,7 +7,8 @@
                 <input type="email" name="email" id="email">
                 <label for="password">Contraseña</label>
                 <input type="password" name="password" id="password">
-                <input type="submit" value="Enviar" class="button">
+                <input type="submit" value="Ingresar" class="button">
+                <a href="<?=base_url?>user/register"> Registrarse </a>
             </form>
         </div>
         <ul>

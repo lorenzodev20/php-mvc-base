@@ -46,11 +46,10 @@ class UserController
         if(isset($_POST)){
             // Identificar al usuario
             // Consulta a la base de datos
-            $usuario = new Usuario();
-            $usuario->setEmail($_POST['email']);
-            $usuario->setPassword($_POST['password']);
-
-            $identity = $usuario->login();
+            $user = new User();
+            $user->setEmail($_POST['email']);
+            $user->setPassword($_POST['password']);
+            $identity = $user->login();
 
             if($identity && is_object($identity)){
                 $_SESSION['identity'] = $identity;

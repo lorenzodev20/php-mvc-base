@@ -137,4 +137,21 @@ class User{
         return $result;
     }
 
+    public function login(){
+        $result = false;
+        $email = $this->email;
+        $password = $this->password;
+        $sql = "SELECT * FROM usuarios WHERE email = '$email' ";
+        $login = $this->db->query($sql);
+        if ($login && $login->num_rows == 1){
+            $user = $login->fetch_object();
+            // Verficar la contraseña
+            $verify = password_verify($password,$user->password);
+            if ($verify){
+                $result = $user;
+            }
+        }
+        return $result;
+    }
+
 }
